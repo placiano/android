@@ -13,15 +13,31 @@
   <remote  name="private"
            fetch="ssh://git@github.com" />
 
+  <remote  name="emotroid"
+           fetch="https://github.com/"
+           revision="mm" />
+
+  <remote  name="placiano"
+           fetch="https://github.com/"
+           revision="mm" />
+
   <default revision="refs/heads/cm-13.0"
            remote="github"
            sync-c="true"
            sync-j="4" />
 
-<!-- BEGIN CYANOGENMOD -->
-  <project path="build" name="CyanogenMod/android_build" groups="pdk" >
+<!-- BEGIN PLACIANO -->
+  <project path="build" remote="placiano" name="placiano/android_build" groups="pdk" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
+  <project path="hardware/qcom/keymaster" remote="emotroid" name="Emotroid-Rom/android_hardware_qcom_keymaster" groups="qcom,qcom_keymaster" />
+  <project path="hardware/broadcom/libbt" remote="emotroid" name="Emotroid-Rom/android_hardware_broadcom_libbt" groups="pdk" />
+<!-- END PLACIANO -->
+
+<!-- BEGIN CYANOGENMOD -->
+  <!--project path="build" name="CyanogenMod/android_build" groups="pdk" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+  </project-->
   <project path="android" name="CyanogenMod/android" />
   <project path="abi/cpp" name="CyanogenMod/android_abi_cpp" groups="pdk" />
   <project path="art" name="CyanogenMod/android_art" groups="pdk" />
@@ -173,7 +189,7 @@
   <project path="frameworks/webview" name="CyanogenMod/android_frameworks_webview" groups="pdk-cw-fs,pdk-fs" />
   <project path="frameworks/wilhelm" name="CyanogenMod/android_frameworks_wilhelm" groups="pdk-cw-fs,pdk-fs" />
   <project path="hardware/akm" name="CyanogenMod/android_hardware_akm" />
-  <project path="hardware/broadcom/libbt" name="CyanogenMod/android_hardware_broadcom_libbt" groups="pdk" />
+  <!--project path="hardware/broadcom/libbt" name="CyanogenMod/android_hardware_broadcom_libbt" groups="pdk" /-->
   <project path="hardware/broadcom/wlan" name="CyanogenMod/android_hardware_broadcom_wlan" groups="pdk,broadcom_wlan" />
   <project path="hardware/cyanogen" name="CyanogenMod/android_hardware_cyanogen" />
   <project path="hardware/intel/common/libmix" name="CyanogenMod/android_hardware_intel_common_libmix" groups="intel" />
